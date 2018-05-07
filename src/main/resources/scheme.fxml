@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inf.unideb.hu.Controller">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="180.0" style="-fx-background-color: #1D2026;">
+         <children>
+            <JFXButton fx:id="btnTimer" focusTraversable="false" layoutY="50.0" onAction="#btnTimer" prefHeight="52.0" prefWidth="180.0" styleClass="btnMenu" text="Timer" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnSettings" focusTraversable="false" layoutY="120.0" onAction="#btnSettings" prefHeight="52.0" prefWidth="180.0" styleClass="btnMenu" text="Settings" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnUtilities" focusTraversable="false" layoutY="190.0" onAction="#btnUtilities" prefHeight="52.0" prefWidth="180.0" styleClass="btnMenu" text="Utilities" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
+         </children></AnchorPane>
+      <JFXButton fx:id="btnExit" buttonType="RAISED" focusTraversable="false" layoutX="717.0" onAction="#btnExit" text="X" textOverrun="CLIP">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <Shadow />
+         </effect>
+      </JFXButton>
+      <AnchorPane layoutX="180.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Pane fx:id="paneTimer" prefHeight="368.0" prefWidth="563.0" visible="false">
+               <children>
+                  <JFXButton fx:id="btnStart" focusTraversable="false" layoutX="100.0" layoutY="35.0" onAction="#btnStart" text="Start">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnStop" focusTraversable="false" layoutX="355.0" layoutY="35.0" onAction="#btnStop" text="Stop">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXTextField fx:id="textfieldStopWatch" editable="false" focusColor="#1d2026" focusTraversable="false" layoutX="215.0" layoutY="150.0" prefHeight="26.0" prefWidth="90.0" text="00h:00m">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextArea fx:id="textareaComment" focusColor="#1d2026" layoutX="14.0" layoutY="222.0" prefHeight="132.0" prefWidth="428.0" />
+                  <JFXButton fx:id="btnComment" focusTraversable="false" layoutX="442.0" layoutY="222.0" onAction="#btnComment" text="Comment">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXButton>
+                  <Label fx:id="labelStartPressed" focusTraversable="false" layoutX="115.0" layoutY="105.0" text="Start button has been already pressed!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelStartnPressed" focusTraversable="false" layoutX="115.0" layoutY="105.0" text="Start button has not been pressed!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelrun" focusTraversable="false" layoutX="216.0" layoutY="105.0" text="RUNNING..." textFill="#00ff8b" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelNoFile" focusTraversable="false" layoutX="115.0" layoutY="105.0" text="No file name specified in settings!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="paneSettings" prefHeight="368.0" prefWidth="563.0" visible="false">
+               <children>
+                  <JFXTextField fx:id="textfieldFileName" focusColor="#1d2026" focusTraversable="false" layoutX="100.0" layoutY="150.0" prefHeight="26.0" prefWidth="287.0" promptText="Please enter the file name to save the data:" />
+                  <JFXRadioButton fx:id="btnRadJSON" focusTraversable="false" layoutX="90.0" layoutY="190.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" selected="true" text="JSON" />
+               </children></Pane>
+            <Pane fx:id="paneUtilities" prefHeight="368.0" prefWidth="563.0" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
