@@ -26,10 +26,10 @@ public class DatabaseJSON implements IDatabase{
     private List<Time> times = null;
 
     public DatabaseJSON(String fileName){
-        FILE_NAME = fileName;
-        File file = new File(FILE_NAME + ".json");
+        FILE_NAME = "src/main/resources/databasefiles/" + fileName + ".json";
+        File file = new File(FILE_NAME);
         if(file.exists()) {
-            File fileOld = new File(FILE_NAME + "old.json");
+            File fileOld = new File("src/main/resources/databasefiles" + fileName + "old.json");
             try {
                 FileUtils.copyFile(file,fileOld);
             } catch (IOException e) {
@@ -41,12 +41,12 @@ public class DatabaseJSON implements IDatabase{
 
     @Override
     public void load(){
-        File file = new File(FILE_NAME + ".json");
+        File file = new File(FILE_NAME );
         if (!file.exists()){
             try {
                 file.createNewFile();
                 times = new ArrayList<>();
-                Logger.info(FILE_NAME + ".json file has been created!");
+                Logger.info(FILE_NAME + " file has been created!");
             } catch (IOException e) {
                 Logger.error(e.getMessage());
                 return;
@@ -67,7 +67,7 @@ public class DatabaseJSON implements IDatabase{
 
     @Override
     public void save(){
-        try(FileWriter fileWriter = new FileWriter(FILE_NAME + ".json")){
+        try(FileWriter fileWriter = new FileWriter(FILE_NAME )){
             GSON.toJson(times, fileWriter);
             Logger.info("File has been updated!");
         }catch (Exception e){
