@@ -22,14 +22,14 @@ import java.util.stream.Collectors;
 public class DatabaseJSON implements IDatabase{
 
     private static Gson GSON = new GsonBuilder().create();
-    private String FILE_NAME = null;
+    private String FILE_NAME ;
     private List<Time> times = null;
 
     public DatabaseJSON(String fileName, boolean backup){
-        FILE_NAME = "src/main/resources/databasefiles/" + fileName + ".json";
+        FILE_NAME = fileName + ".json";
         File file = new File(FILE_NAME);
         if(file.exists() && backup) {
-            File fileOld = new File("src/main/resources/databasefiles/" + fileName + "old.json");
+            File fileOld = new File(fileName + "old.json");
             try {
                 FileUtils.copyFile(file,fileOld);
             } catch (IOException e) {
@@ -77,7 +77,7 @@ public class DatabaseJSON implements IDatabase{
     }
 
     @Override
-    public void insertDBTimer(Time time){
+    public void insertDBTime(Time time){
         if (times != null){
             times.add(time);
         }else {
@@ -128,6 +128,9 @@ public class DatabaseJSON implements IDatabase{
 
         return stringBuilder.toString();
     }
+    @Override
+    public List<Time> getList(){ return times;}
+
 }
 
 

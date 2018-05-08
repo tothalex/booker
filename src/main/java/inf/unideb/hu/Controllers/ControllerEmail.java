@@ -13,6 +13,7 @@ import org.pmw.tinylog.Logger;
 
 public class ControllerEmail {
 
+    private static String path = "src/main/resources/databasefiles/";
 
     @FXML private JFXTextField textfieldFrom;
     @FXML private JFXPasswordField passfieldGMAIL;
@@ -23,7 +24,7 @@ public class ControllerEmail {
     @FXML
     void btnSend(ActionEvent event) {
         try {
-            IDatabase database = new DatabaseJSON("database", false);
+            IDatabase database = new DatabaseJSON(path + "database", false);
             database.load();
             String content = database.formatCSV();
             if (content.length() == 0) throw new Exception("Empty content");

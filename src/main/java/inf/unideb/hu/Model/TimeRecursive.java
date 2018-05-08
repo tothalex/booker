@@ -24,7 +24,23 @@ public class TimeRecursive extends RecursiveTreeObject<TimeRecursive> {
     public TimeRecursive(Time time){
         this.Start = time.getStart();
         this.End = time.getEnd();
-        this.Comment = time.getComment();
+
+        String com = time.getComment();
+        if (com.length() > 30){
+            com.replace('\n',';');
+            StringBuilder builder = new StringBuilder();
+            for (int i=0; i<com.length(); i+= 20){
+                if ( i + 20 > com.length() ){
+                    builder.append(com.substring(i));
+                    break;
+                }else {
+                    builder.append(com.substring(i, i+20) + "-");
+                    builder.append("\n");
+                }
+            }
+            com = builder.toString();
+        }
+        this.Comment = com;
     }
 
     public LocalDateTime getStart() { return Start; }

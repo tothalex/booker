@@ -23,12 +23,14 @@ import java.util.ResourceBundle;
 
 public class ControllerView {
 
+    private static String path = "src/main/resources/databasefiles/";
+
     @FXML private JFXTreeTableView<TimeRecursive> table;
     @FXML private JFXTextField textfieldTotal;
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @FXML void btnRefresh(ActionEvent event) {
-        DatabaseJSON database = new DatabaseJSON("database", false);
+        DatabaseJSON database = new DatabaseJSON(path + "database", false);
         initialize(database);
     }
 
@@ -45,8 +47,8 @@ public class ControllerView {
 
         colStart.setPrefWidth(150);
         colEnd.setPrefWidth(150);
-        colComments.setPrefWidth(155);
         colDur.setPrefWidth(100);
+        colComments.setPrefWidth(165);
 
         ObservableList<TimeRecursive> list = FXCollections.observableArrayList();
 

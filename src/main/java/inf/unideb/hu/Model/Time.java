@@ -8,6 +8,8 @@ import org.apache.commons.lang3.time.DurationFormatUtils;
 import java.beans.Transient;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Objects;
+
 import org.pmw.tinylog.*;
 
 public class Time {
@@ -32,4 +34,19 @@ public class Time {
     public String getComment() { return Comment; }
     @Transient
     public long getDuration(){ return Duration.between(Start, End).toMillis(); }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Time time = (Time) o;
+        return Start.equals(time.getStart()) &&
+                End.equals(time.getEnd()) &&
+                Comment.equals(time.getComment());
+    }
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(Start, End, Comment);
+    }
 }

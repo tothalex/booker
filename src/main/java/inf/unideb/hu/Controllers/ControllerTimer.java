@@ -10,11 +10,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import org.pmw.tinylog.Logger;
 
-import javax.naming.event.EventContext;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class ControllerTimer {
+
+    private static String path = "src/main/resources/databasefiles/";
 
     private IDatabase database = null;
     private DBTimer dbTimer = new DBTimer();
@@ -67,9 +68,9 @@ public class ControllerTimer {
             labelStartPressed.setVisible(false);
             labelrun.setVisible(false);
             dbTimer.stop();
-            database = new DatabaseJSON("database", true);
+            if (database == null) database = new DatabaseJSON(path + "database", true);
             database.load();
-            database.insertDBTimer(dbTimer.getTime());
+            database.insertDBTime(dbTimer.getTime());
             database.save();
             dbTimer.reset();
             STOP = true;
@@ -86,7 +87,8 @@ public class ControllerTimer {
     public void btnComment(Event event) {
         try {
             Logger.info("Comment button pressed!");
-            dbTimer.addComment(textareaComment.getText());
+            String comment = textareaComment.getText();
+            dbTimer.addComment(comment);
             Logger.info("Comment added!(" + textareaComment.getText() + ")");
             textareaComment.setText("");
         } catch (Exception e) {
