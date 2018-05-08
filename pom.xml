@@ -1,134 +1,134 @@
-    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-      <modelVersion>4.0.0</modelVersion>
-      <groupId>inf.unideb.hu</groupId>
-      <artifactId>booker</artifactId>
-      <packaging>jar</packaging>
-      <version>1.0-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>inf.unideb.hu</groupId>
+    <artifactId>booker</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
 
-        <licenses>
-            <license>
-                <name>GNU General Public License (GPL) version 3.0</name>
-                <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
-            </license>
-        </licenses>
+    <licenses>
+        <license>
+            <name>GNU General Public License (GPL) version 3.0</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+        </license>
+    </licenses>
 
-        <developers>
-            <developer>
-                <id>totha</id>
-                <name>Tóth Alex</name>
-                <email>tothalex097@gmail.com</email>
-                <organization>Faculty of Informatics, University of Debrecen</organization>
-                <organizationUrl>http://www.inf.unideb.hu/</organizationUrl>
-            </developer>
-        </developers>
+    <developers>
+        <developer>
+            <id>totha</id>
+            <name>Tóth Alex</name>
+            <email>tothalex097@gmail.com</email>
+            <organization>Faculty of Informatics, University of Debrecen</organization>
+            <organizationUrl>http://www.inf.unideb.hu/</organizationUrl>
+        </developer>
+    </developers>
 
-        <properties>
-            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-            <maven.compiler.source>1.8</maven.compiler.source>
-            <maven.compiler.target>1.8</maven.compiler.target>
-            <exec.mainClass>inf.unideb.hu.App</exec.mainClass>
-        </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <exec.mainClass>inf.unideb.hu.App</exec.mainClass>
+    </properties>
 
-        <dependencies>
+    <dependencies>
 
-            <dependency>
-                <groupId>junit</groupId>
-              <artifactId>junit</artifactId>
-              <version>4.11</version>
-              <scope>test</scope>
-            </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
 
-            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-                <dependency>
-                    <groupId>com.fasterxml.jackson.core</groupId>
-                    <artifactId>jackson-databind</artifactId>
-                    <version>2.9.5</version>
-                </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.5</version>
+        </dependency>
 
-                <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-                <dependency>
-                    <groupId>commons-io</groupId>
-                    <artifactId>commons-io</artifactId>
-                    <version>2.5</version>
-                </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
 
-                <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-                <dependency>
-                    <groupId>org.apache.commons</groupId>
-                    <artifactId>commons-lang3</artifactId>
-                    <version>3.0</version>
-                </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
+        </dependency>
 
-              <dependency>
-                  <groupId>org.tinylog</groupId>
-                  <artifactId>tinylog</artifactId>
-                  <version>1.3.4</version>
-              </dependency>
+        <dependency>
+            <groupId>org.tinylog</groupId>
+            <artifactId>tinylog</artifactId>
+            <version>1.3.4</version>
+        </dependency>
 
-              <!-- https://mvnrepository.com/artifact/com.jfoenix/jfoenix -->
-              <dependency>
-                  <groupId>com.jfoenix</groupId>
-                  <artifactId>jfoenix</artifactId>
-                  <version>9.0.0</version>
-              </dependency>
+        <!-- https://mvnrepository.com/artifact/com.jfoenix/jfoenix -->
+        <dependency>
+            <groupId>com.jfoenix</groupId>
+            <artifactId>jfoenix</artifactId>
+            <version>9.0.0</version>
+        </dependency>
 
-              <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-              <dependency>
-                  <groupId>com.google.code.gson</groupId>
-                  <artifactId>gson</artifactId>
-                  <version>2.8.4</version>
-              </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.4</version>
+        </dependency>
 
-            <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
-            <dependency>
-                <groupId>javax.mail</groupId>
-                <artifactId>mail</artifactId>
-                <version>1.4.7</version>
-            </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
 
-        </dependencies>
+    </dependencies>
 
-        <reporting>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.0.0</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-report-plugin</artifactId>
-                    <version>2.21.0</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jxr-plugin</artifactId>
-                    <version>2.5</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>3.0.0</version>
-                    <configuration>
-                        <configLocation>${basedir}/src/main/resources/checkstyle/checkstyle.xml</configLocation>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.openclover</groupId>
-                    <artifactId>clover-maven-plugin</artifactId>
-                    <version>4.2.0</version>
-                    <configuration>
-                        <generatePdf>true</generatePdf>
-                        <generateHtml>true</generateHtml>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </reporting>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>2.21.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.5</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <configLocation>${basedir}/src/main/resources/checkstyle/checkstyle.xml</configLocation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openclover</groupId>
+                <artifactId>clover-maven-plugin</artifactId>
+                <version>4.2.0</version>
+                <configuration>
+                    <generatePdf>true</generatePdf>
+                    <generateHtml>true</generateHtml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
-        <build>
-            <plugins>
-                <plugin>
+    <build>
+        <plugins>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.1.0</version>
@@ -141,7 +141,7 @@
                         <configuration>
                             <transformers>
                                 <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>${exec.mainClass}</mainClass>
                                 </transformer>
                             </transformers>
@@ -237,21 +237,21 @@
                     </execution>
                 </executions>
             </plugin>
-                <plugin>
-                    <groupId>com.zenjava</groupId>
-                    <artifactId>javafx-maven-plugin</artifactId>
-                    <version>8.8.3</version>
-                    <configuration>
-                        <mainClass>inf.unideb.hu.booker.Main</mainClass>
-                    </configuration>
-                </plugin>
-            </plugins>
-            <resources>
+            <plugin>
+                <groupId>com.zenjava</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>8.8.3</version>
+                <configuration>
+                    <mainClass>inf.unideb.hu.booker.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
             <resource>
                 <directory>src/main/resources/</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>
-        </build>
+    </build>
 
-    </project>
+</project>

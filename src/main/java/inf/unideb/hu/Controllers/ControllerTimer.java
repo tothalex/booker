@@ -67,7 +67,7 @@ public class ControllerTimer {
             labelStartPressed.setVisible(false);
             labelrun.setVisible(false);
             dbTimer.stop();
-            database = new DatabaseJSON("database");
+            database = new DatabaseJSON("database", true);
             database.load();
             database.insertDBTimer(dbTimer.getTime());
             database.save();

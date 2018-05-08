@@ -1,52 +1,27 @@
 package inf.unideb.hu.Controllers;
 
-import com.jfoenix.controls.*;
-import inf.unideb.hu.DBTimer.DBTimer;
-import inf.unideb.hu.Database.DatabaseJSON;
-import inf.unideb.hu.Database.IDatabase;
-import inf.unideb.hu.Sender.Email;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-
-
 import javafx.stage.Stage;
 import org.pmw.tinylog.*;
-
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Controller {
-
+public class Controller implements Initializable {
 
     @FXML private BorderPane borderPane;
+    private static Parent timer;
+    private static Parent email;
+    private static Parent view;
 
-    private static Parent timer = loadFXML("timer");
-    private static Parent email = loadFXML("email");
-    private static Parent view = loadFXML("View");
-
-    @FXML
-    void btnEmail(ActionEvent event) {
-        borderPane.setCenter(email);
-    }
-
-    @FXML
-    void btnTimer(ActionEvent event) {
-        borderPane.setCenter(timer);
-    }
-
-    @FXML
-    void btnView(ActionEvent event) {
-        borderPane.setCenter(view);
-    }
+    @FXML void btnEmail(ActionEvent event) { borderPane.setCenter(email); }
+    @FXML void btnTimer(ActionEvent event) { borderPane.setCenter(timer); }
+    @FXML void btnView(ActionEvent event) { borderPane.setCenter(view); }
 
     @FXML
     void btnExit(ActionEvent event){
@@ -64,4 +39,10 @@ public class Controller {
         return root;
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        timer = loadFXML("timer");
+        email = loadFXML("email");
+        view = loadFXML("view");
+    }
 }

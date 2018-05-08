@@ -23,7 +23,7 @@ public class ControllerEmail {
     @FXML
     void btnSend(ActionEvent event) {
         try {
-            IDatabase database = new DatabaseJSON("database");
+            IDatabase database = new DatabaseJSON("database", false);
             database.load();
             String content = database.formatCSV();
             if (content.length() == 0) throw new Exception("Empty content");

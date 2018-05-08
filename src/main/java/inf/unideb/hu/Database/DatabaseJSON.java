@@ -25,11 +25,11 @@ public class DatabaseJSON implements IDatabase{
     private String FILE_NAME = null;
     private List<Time> times = null;
 
-    public DatabaseJSON(String fileName){
+    public DatabaseJSON(String fileName, boolean backup){
         FILE_NAME = "src/main/resources/databasefiles/" + fileName + ".json";
         File file = new File(FILE_NAME);
-        if(file.exists()) {
-            File fileOld = new File("src/main/resources/databasefiles" + fileName + "old.json");
+        if(file.exists() && backup) {
+            File fileOld = new File("src/main/resources/databasefiles/" + fileName + "old.json");
             try {
                 FileUtils.copyFile(file,fileOld);
             } catch (IOException e) {
@@ -80,7 +80,10 @@ public class DatabaseJSON implements IDatabase{
     public void insertDBTimer(Time time){
         if (times != null){
             times.add(time);
-        }else Logger.error("List value is null!");
+        }else {
+            Logger.error("List value is null!");
+            times = new ArrayList<>();
+        };
     }
 
     @Override
@@ -109,17 +112,17 @@ public class DatabaseJSON implements IDatabase{
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
         stringBuilder.append("StartDate");
-        stringBuilder.append(";EndDate");
-        stringBuilder.append(";Comments");
-        stringBuilder.append(";Duration (Total: " + totalCurrentMonth() + ")");
+        stringBuilder.append(",EndDate");
+        stringBuilder.append(",Comments");
+        stringBuilder.append(",Duration (Total: " + totalCurrentMonth() + ")");
 
         times.forEach( x -> {
             stringBuilder.append(System.lineSeparator());
             if (x.getStart().getMonth().equals(LocalDateTime.now().getMonth()))
             stringBuilder.append( quote(x.getStart().format(formatter))
-                          + ";" + quote(x.getEnd().format(formatter))
-                          + ";" + quote(x.getComment())
-                          + ";" + quote(formatDuration(x.getDuration()))
+                          + "," + quote(x.getEnd().format(formatter))
+                          + "," + quote(x.getComment())
+                          + "," + quote(formatDuration(x.getDuration()))
             );
         });
 

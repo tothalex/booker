@@ -1,27 +1,30 @@
 package inf.unideb.hu.Model;
 
-import com.google.gson.annotations.Expose;
+import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import javafx.collections.ObservableList;
-import org.apache.commons.lang3.time.DurationFormatUtils;
 
 import java.beans.Transient;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import org.pmw.tinylog.*;
 
-public class Time {
+public class TimeRecursive extends RecursiveTreeObject<TimeRecursive> {
 
     private LocalDateTime Start;
     private LocalDateTime End;
     private String Comment = "";
 
-    public Time() { }
+    public TimeRecursive() { }
 
-    public Time(LocalDateTime start, LocalDateTime end, String comment) {
+    public TimeRecursive(LocalDateTime start, LocalDateTime end, String comment) {
         Start = start;
         End = end;
         this.Comment = comment;
+    }
+
+    public TimeRecursive(Time time){
+        this.Start = time.getStart();
+        this.End = time.getEnd();
+        this.Comment = time.getComment();
     }
 
     public LocalDateTime getStart() { return Start; }
@@ -30,6 +33,6 @@ public class Time {
     public void setEnd(LocalDateTime end) { End = end; }
     public void setComment(String comment) { Comment = comment; }
     public String getComment() { return Comment; }
-    @Transient
     public long getDuration(){ return Duration.between(Start, End).toMillis(); }
+
 }
