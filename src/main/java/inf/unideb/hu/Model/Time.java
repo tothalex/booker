@@ -15,9 +15,10 @@ public class Time {
 
     public Time() { }
 
-    public Time(LocalDateTime start, LocalDateTime end) {
+    public Time(LocalDateTime start, LocalDateTime end, String comment) {
         Start = start;
         End = end;
+        this.Comment = comment;
     }
 
     public LocalDateTime getStart() { return Start; }
@@ -27,12 +28,5 @@ public class Time {
     public void setComment(String comment) { Comment = comment; }
     public String getComment() { return Comment; }
     @Transient
-    public String getDuration() {
-        String temp = DurationFormatUtils.formatDuration(Duration.between(Start, End).toMillis(), "HH:MM");
-        Logger.info("Started at [" + getStart() + "]");
-        Logger.info("Ended at [" + getEnd() + "]");
-        Logger.info("Duration [" + temp + "]");
-        return temp;
-    }
-
+    public long getDuration(){ return Duration.between(Start, End).toMillis(); }
 }

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"inf.unideb.hu","l":"App"},{"p":"inf.unideb.hu","l":"Controller"},{"p":"inf.unideb.hu.Database","l":"DatabaseJSON"},{"p":"inf.unideb.hu.DBTimer","l":"DBTimer"},{"p":"inf.unideb.hu.Sender","l":"Email"},{"p":"inf.unideb.hu.Database","l":"IDatabase"},{"p":"inf.unideb.hu.Model","l":"Time"}]

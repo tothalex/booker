@@ -3,9 +3,10 @@ inf/unideb/hu/Database/DatabaseJSON$1.class
 inf/unideb/hu/Database/IDatabase.class
 inf/unideb/hu/DBTimer/DBTimer.class
 inf/unideb/hu/App$2.class
+inf/unideb/hu/Sender/Email$1.class
+inf/unideb/hu/Sender/Email.class
 inf/unideb/hu/Database/DatabaseJSON.class
 inf/unideb/hu/Controller$1.class
-inf/unideb/hu/StopWatch/StopWatch.class
 inf/unideb/hu/Controller.class
 inf/unideb/hu/App.class
 inf/unideb/hu/App$1.class

@@ -1,5 +1,6 @@
 package inf.unideb.hu;
 
+import inf.unideb.hu.Sender.Email;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.apache.commons.lang3.time.DurationFormatUtils;
+
+import javax.mail.MessagingException;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class App extends Application
 {
@@ -39,7 +46,7 @@ public class App extends Application
         });
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MessagingException {
         launch(args);
     }
 

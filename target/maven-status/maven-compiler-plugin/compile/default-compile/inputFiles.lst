@@ -1,7 +1,7 @@
-/Users/tothalex/Documents/prog-tech-korny/booker/src/main/java/inf/unideb/hu/Database/IDatabase.java
-/Users/tothalex/Documents/prog-tech-korny/booker/src/main/java/inf/unideb/hu/App.java
-/Users/tothalex/Documents/prog-tech-korny/booker/src/main/java/inf/unideb/hu/DBTimer/DBTimer.java
-/Users/tothalex/Documents/prog-tech-korny/booker/src/main/java/inf/unideb/hu/Database/DatabaseJSON.java
-/Users/tothalex/Documents/prog-tech-korny/booker/src/main/java/inf/unideb/hu/StopWatch/StopWatch.java
-/Users/tothalex/Documents/prog-tech-korny/booker/src/main/java/inf/unideb/hu/Model/Time.java
-/Users/tothalex/Documents/prog-tech-korny/booker/src/main/java/inf/unideb/hu/Controller.java
+/Users/tothalex/Documents/github/booker/src/main/java/inf/unideb/hu/App.java
+/Users/tothalex/Documents/github/booker/src/main/java/inf/unideb/hu/Model/Time.java
+/Users/tothalex/Documents/github/booker/src/main/java/inf/unideb/hu/Controller.java
+/Users/tothalex/Documents/github/booker/src/main/java/inf/unideb/hu/Sender/Email.java
+/Users/tothalex/Documents/github/booker/src/main/java/inf/unideb/hu/Database/DatabaseJSON.java
+/Users/tothalex/Documents/github/booker/src/main/java/inf/unideb/hu/DBTimer/DBTimer.java
+/Users/tothalex/Documents/github/booker/src/main/java/inf/unideb/hu/Database/IDatabase.java

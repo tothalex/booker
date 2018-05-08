@@ -9,5 +9,7 @@ public interface IDatabase {
     public void load();
     public void save();
     public void insertDBTimer(Time time);
-    public List<Time> getDatabaseArray();
+    public List<Time> getDatabaseListCurrentMonth();
+    public String formatCSV();
+    public String totalCurrentMonth();
 }

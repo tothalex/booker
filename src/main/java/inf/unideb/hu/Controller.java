@@ -1,36 +1,39 @@
 package inf.unideb.hu;
 
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import inf.unideb.hu.DBTimer.DBTimer;
 import inf.unideb.hu.Database.DatabaseJSON;
 import inf.unideb.hu.Database.IDatabase;
+import inf.unideb.hu.Sender.Email;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
-import org.pmw.tinylog.*;
 
+import org.pmw.tinylog.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Controller {
 
     @FXML private Pane paneTimer;
-    @FXML private Pane paneSettings;
+    @FXML private Pane paneView;
     @FXML private Pane paneUtilities;
     @FXML private JFXTextField textfieldStopWatch;
     @FXML private JFXTextArea textareaComment;
     @FXML private Label labelStartPressed;
     @FXML private Label labelStartnPressed;
     @FXML private Label labelrun;
-    @FXML private JFXTextField textfieldFileName;
-    @FXML private Label labelNoFile;
+    @FXML private JFXTextField textfieldFrom;
+    @FXML private JFXPasswordField passfieldGMAIL;
+    @FXML private JFXTextField textfieldTo;
+    @FXML private Label labelSent;
+    @FXML private Label labelFailed;
 
-    private IDatabase database;
+    private IDatabase database = null;
     private DBTimer dbTimer = new DBTimer();
     private boolean STOP = false;
     private Timer timer = new Timer();
@@ -42,19 +45,23 @@ public class Controller {
     @FXML
     public void btnTimer(ActionEvent event) {
         paneTimer.setVisible(true);
-        paneSettings.setVisible(false);
+        paneView.setVisible(false);
         paneUtilities.setVisible(false);
     }
     @FXML
-    public void btnSettings(ActionEvent event) {
-        paneSettings.setVisible(true);
+    public void btnView(ActionEvent event) {
+        paneView.setVisible(true);
         paneTimer.setVisible(false);
         paneUtilities.setVisible(false);
+        if (database == null)
+            database = new DatabaseJSON("database");
+        database.load();
+
     }
     @FXML
     public void btnUtilities(ActionEvent event){
         paneUtilities.setVisible(true);
-        paneSettings.setVisible(false);
+        paneView.setVisible(false);
         paneTimer.setVisible(false);
     }
     @FXML
@@ -78,15 +85,14 @@ public class Controller {
                     }
                     Logger.info("[" + h + ":" + m + "]");
                     textfieldStopWatch.setText(
-                            (h < 9 ? "0" + h: (Integer.toString(h))) + "h:" +
-                                    (m < 9 ? "0" + m:(Integer.toString(m))) + "m");
+                            (h <= 9 ? "0" + h: (Integer.toString(h))) + "h:" +
+                                    (m <= 9 ? "0" + m:(Integer.toString(m))) + "m");
                 }
             }, 60*1000, 60*1000);
         } catch (Exception e) {
             Logger.error(e.getMessage());
             labelStartPressed.setVisible(true);
             labelrun.setVisible(false);
-            labelNoFile.setVisible(false);
             return;
         }
     }
@@ -95,20 +101,14 @@ public class Controller {
         try {
             labelStartPressed.setVisible(false);
             labelrun.setVisible(false);
-            labelNoFile.setVisible(false);
-            if(textfieldFileName.getText().length() > 0) {
-                dbTimer.stop();
-                database = new DatabaseJSON(textfieldFileName.getText());
-                database.load();
-                database.insertDBTimer(dbTimer.getTime());
-                database.save();
-                dbTimer.reset();
-                STOP = true;
-            }
-            else{
-                labelNoFile.setVisible(true);
-                return;
-            }
+            dbTimer.stop();
+            database = new DatabaseJSON("database");
+            database.load();
+            database.insertDBTimer(dbTimer.getTime());
+            database.save();
+            dbTimer.reset();
+            STOP = true;
+
             Logger.info("Stop button pressed!");
         } catch (Exception e){
             Logger.error(e.getMessage());
@@ -125,6 +125,25 @@ public class Controller {
             textareaComment.setText("");
         }catch (Exception e){
             Logger.error(e);
+            return;
+        }
+    }
+
+    @FXML
+    public void btnSend(ActionEvent event){
+        try {
+            database = database == null ? new DatabaseJSON("database") : database;
+            database.load();
+            String content = database.formatCSV();
+            if (content.length() == 0) throw new Exception("Empty content");
+            Email email = new Email(textfieldFrom.getText(), passfieldGMAIL.getText(), textfieldTo.getText());
+            email.send(content);
+            labelFailed.setVisible(false);
+            labelSent.setVisible(true);
+        }catch (Exception ex){
+            Logger.error(ex);
+            labelSent.setVisible(false);
+            labelFailed.setVisible(true);
             return;
         }
     }
