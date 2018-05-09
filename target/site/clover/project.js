@@ -1,2 +1,0 @@
-processClover (  {"children":["inf/unideb/hu/Database/","inf/unideb/hu/DBTimer/","inf/unideb/hu/Sender/","inf/unideb/hu/","inf/unideb/hu/Model/"],"name":"Clover database Tue May 8 2018 13:15:49 CEST","stats":{"AvgMethodComplexity":1.7317073,"Complexity":71,"ErroneousTests":0,"FailingTests":0,"FilteredElements":0,"PassingTests":0,"PcErroneousTests":-1,"PcFailingTests":-1,"PcPassingTests":-1,"TestExecutionTime":0,"Tests":0,"TotalChildren":5,"TotalPercentageCovered":1.4925373,"TotalStatements":193,"UncoveredElements":264},"title":"booker 1.0-SNAPSHOT"}
- ); 

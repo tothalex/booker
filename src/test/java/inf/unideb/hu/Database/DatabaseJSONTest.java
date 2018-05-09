@@ -23,7 +23,7 @@ public class DatabaseJSONTest {
     @BeforeClass
     public static void setUpClass() throws Exception {
         file = new File(path + "test" + ".json");
-        /*file.createNewFile();
+        file.createNewFile();
         Writer writer = new FileWriter(file);
         LocalDateTime now = LocalDateTime.now();
         timeList = new ArrayList<>();
@@ -33,7 +33,7 @@ public class DatabaseJSONTest {
             timeList.add(time);
         }
         writer.write(GSON.toJson(timeList));
-        writer.close();*/
+        writer.close();
     }
 
     @AfterClass
