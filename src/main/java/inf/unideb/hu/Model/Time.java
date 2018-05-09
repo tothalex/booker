@@ -44,9 +44,13 @@ public class Time {
                 End.equals(time.getEnd()) &&
                 Comment.equals(time.getComment());
     }
-    @Override
-    public int hashCode() {
 
-        return Objects.hash(Start, End, Comment);
+    @Override
+    public String toString() {
+        return "Time{" +
+                "Start=" + Start +
+                ", End=" + End +
+                ", Comment='" + Comment + '\'' +
+                '}';
     }
 }

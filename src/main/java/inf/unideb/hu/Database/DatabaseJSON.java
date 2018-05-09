@@ -78,11 +78,13 @@ public class DatabaseJSON implements IDatabase{
 
     @Override
     public void insertDBTime(Time time){
+        if (time != null)
         if (times != null){
             times.add(time);
         }else {
             Logger.error("List value is null!");
             times = new ArrayList<>();
+            times.add(time);
         };
     }
 

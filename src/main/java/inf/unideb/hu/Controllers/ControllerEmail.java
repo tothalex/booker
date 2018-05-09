@@ -1,9 +1,8 @@
 package inf.unideb.hu.Controllers;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import inf.unideb.hu.Database.DatabaseJSON;
+import inf.unideb.hu.Database.DatabaseFactory;
 import inf.unideb.hu.Database.IDatabase;
 import inf.unideb.hu.Sender.Email;
 import javafx.event.ActionEvent;
@@ -12,8 +11,6 @@ import javafx.scene.control.Label;
 import org.pmw.tinylog.Logger;
 
 public class ControllerEmail {
-
-    private static String path = "src/main/resources/databasefiles/";
 
     @FXML private JFXTextField textfieldFrom;
     @FXML private JFXPasswordField passfieldGMAIL;
@@ -24,7 +21,7 @@ public class ControllerEmail {
     @FXML
     void btnSend(ActionEvent event) {
         try {
-            IDatabase database = new DatabaseJSON(path + "database", false);
+            IDatabase database = DatabaseFactory.get();
             database.load();
             String content = database.formatCSV();
             if (content.length() == 0) throw new Exception("Empty content");

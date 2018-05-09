@@ -1,5 +1,6 @@
 package inf.unideb.hu.Controllers;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -25,8 +26,7 @@ public class Controller implements Initializable {
 
     @FXML
     void btnExit(ActionEvent event){
-        Stage stage = (Stage) borderPane.getScene().getWindow();
-        stage.close();
+        Platform.exit();
     }
 
     private static Parent loadFXML(String fxml){

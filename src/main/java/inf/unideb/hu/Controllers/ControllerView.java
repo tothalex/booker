@@ -5,7 +5,7 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import inf.unideb.hu.Database.DatabaseJSON;
+import inf.unideb.hu.Database.DatabaseFactory;
 import inf.unideb.hu.Database.IDatabase;
 import inf.unideb.hu.Model.TimeRecursive;
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -13,28 +13,23 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 
-import java.net.URL;
 import java.time.format.DateTimeFormatter;
-import java.util.ResourceBundle;
 
 public class ControllerView {
-
-    private static String path = "src/main/resources/databasefiles/";
 
     @FXML private JFXTreeTableView<TimeRecursive> table;
     @FXML private JFXTextField textfieldTotal;
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @FXML void btnRefresh(ActionEvent event) {
-        DatabaseJSON database = new DatabaseJSON(path + "database", false);
+        IDatabase database = DatabaseFactory.get();
         initialize(database);
     }
 
-    public void initialize(DatabaseJSON database) {
+    public void initialize(IDatabase database) {
 
         JFXTreeTableColumn<TimeRecursive, String> colStart = new JFXTreeTableColumn<>("Start");
         colStart.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getValue().getStart().format(formatter)));
@@ -53,6 +48,7 @@ public class ControllerView {
         ObservableList<TimeRecursive> list = FXCollections.observableArrayList();
 
         database.load();
+        if (database.getDatabaseListCurrentMonth().isEmpty()) return;
         database.getDatabaseListCurrentMonth().forEach(x -> list.add(new TimeRecursive(x)));
 
         final TreeItem<TimeRecursive> root = new RecursiveTreeItem<TimeRecursive>(list, RecursiveTreeObject::getChildren);

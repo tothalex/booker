@@ -3,7 +3,7 @@ package inf.unideb.hu.Controllers;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import inf.unideb.hu.DBTimer.DBTimer;
-import inf.unideb.hu.Database.DatabaseJSON;
+import inf.unideb.hu.Database.DatabaseFactory;
 import inf.unideb.hu.Database.IDatabase;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -14,8 +14,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class ControllerTimer {
-
-    private static String path = "src/main/resources/databasefiles/";
 
     private IDatabase database = null;
     private DBTimer dbTimer = new DBTimer();
@@ -68,7 +66,7 @@ public class ControllerTimer {
             labelStartPressed.setVisible(false);
             labelrun.setVisible(false);
             dbTimer.stop();
-            if (database == null) database = new DatabaseJSON(path + "database", true);
+            if (database == null) database = DatabaseFactory.get();
             database.load();
             database.insertDBTime(dbTimer.getTime());
             database.save();
