@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inf.unideb.hu.Controllers.ControllerView">
+   <children>
+      <JFXButton fx:id="btnInsert" focusTraversable="false" layoutX="227.0" layoutY="8.0" onAction="#btnInsert" prefHeight="52.0" prefWidth="126.0" text="Insert">
+         <font>
+            <Font size="20.0" />
+         </font></JFXButton>
+      <JFXTreeTableView fx:id="table" layoutX="6.0" layoutY="69.0" prefHeight="285.0" prefWidth="568.0" />
+      <JFXButton fx:id="btnRefresh" focusTraversable="false" layoutX="6.0" layoutY="8.0" onAction="#btnRefresh" prefHeight="52.0" prefWidth="180.0" text="Refresh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="420.0" layoutY="8.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="70.0" text="Total:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="textfieldTotal" editable="false" focusColor="#1d2026" focusTraversable="false" layoutX="490.0" layoutY="12.0" prefHeight="40.0" prefWidth="57.0" text="00:00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>
