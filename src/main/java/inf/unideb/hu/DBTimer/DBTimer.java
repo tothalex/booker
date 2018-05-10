@@ -4,6 +4,9 @@ import inf.unideb.hu.Model.Time;
 
 import java.time.LocalDateTime;
 
+/**
+ * Class representing a timer.
+ */
 public class DBTimer {
 
     private Time time;
